@@ -4,12 +4,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 
-// Update the import paths to point to the correct location
 import SignUpScreen from './component/signUp';
 import LoginScreen from './component/login';
 import ForgotPasswordScreen from './component/forgetPassword';
+import Home from './component/home'; // Import the new Home screen
 
-const HomeScreen = ({ navigation }) => {
+const WelcomeScreen = ({ navigation }) => {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Image source={require('./assets/img/appicon.png')} style={styles.logo} />
@@ -26,16 +26,38 @@ const HomeScreen = ({ navigation }) => {
   );
 };
 
+const Nutrition = () => (
+  <View>
+    <Text>Nutrition Page</Text>
+  </View>
+);
+
+const Report = () => (
+  <View>
+    <Text>Report Page</Text>
+  </View>
+);
+
+const Profile = () => (
+  <View>
+    <Text>Profile Page</Text>
+  </View>
+);
+
 const Stack = createStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Navigator initialRouteName="Welcome">
+        <Stack.Screen name="Welcome" component={WelcomeScreen} />
         <Stack.Screen name="SignUp" component={SignUpScreen} />
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Nutrition" component={Nutrition} />
+        <Stack.Screen name="Report" component={Report} />
+        <Stack.Screen name="Profile" component={Profile} />
       </Stack.Navigator>
     </NavigationContainer>
   );
