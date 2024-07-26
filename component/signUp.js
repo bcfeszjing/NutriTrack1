@@ -15,7 +15,7 @@ const SignUp = ({ navigation }) => {
         formData.append('email', email);
         formData.append('password', password);
 
-        const response = await fetch('http://your-backend-endpoint/signUp.php', {
+        const response = await fetch('http://your-backend-endpoint/backend/signUp.php', {
           method: 'POST',
           body: formData,
         });
